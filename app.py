@@ -225,7 +225,6 @@ with st.sidebar.container(border=True):
         horizontal=True,
         label_visibility="collapsed"
     )
-st.sidebar.divider()
 
 # --- LÓGICA PRINCIPAL DA APLICAÇÃO ---
 if app_mode == "Sistema Preditivo":
