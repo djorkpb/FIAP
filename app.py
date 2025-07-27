@@ -153,10 +153,10 @@ def render_input(widget_type, label, options, key, **kwargs):
     return input_widget
 
 # --- NAVEGAÇÃO ---
-st.sidebar.header("Navegação")
 with st.sidebar.container(border=True):
-    app_mode = st.sidebar.radio(
-        "Escolha a funcionalidade",
+    st.subheader("Navegação")  # Movido para dentro do container
+    app_mode = st.radio(
+        "Escolha a funcionalidade:",
         ["Painel Analítico", "Sistema Preditivo"],
         horizontal=True,
         label_visibility="collapsed"
