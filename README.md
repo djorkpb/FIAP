@@ -21,8 +21,7 @@ O modelo foi treinado com uma base de dados real da Decision, aprendendo a ident
 
 ## 📂 Estrutura do Repositório
 
-O projeto está organizado da seguinte forma para garantir a manutenibilidade e reprodutibilidade:
-
+```
 ├── app/
 │   └── app.py                  # Script principal da aplicação com Streamlit
 ├── data/
@@ -43,7 +42,7 @@ O projeto está organizado da seguinte forma para garantir a manutenibilidade e 
 │   └── 3_Model_Training.ipynb      # Notebook da Etapa 3
 ├── README.md                     # Documentação do projeto
 └── requirements.txt              # Bibliotecas e versões para o ambiente
-
+```
 
 ## ⚙️ Instruções de Instalação
 
@@ -57,11 +56,11 @@ Para executar este projeto localmente, siga os passos abaixo.
 ```bash
 git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git)
 cd SEU_REPOSITORIO
-3. Crie um Ambiente Virtual (Recomendado):
+```
+
+**3. Crie um Ambiente Virtual (Recomendado):**
 Isso isola as dependências do projeto.
-
-Bash
-
+```bash
 # Para Windows
 python -m venv venv
 venv\Scripts\activate
@@ -69,39 +68,35 @@ venv\Scripts\activate
 # Para macOS/Linux
 python3 -m venv venv
 source venv/bin/activate
-4. Instale as Dependências:
-O arquivo requirements.txt contém todas as bibliotecas necessárias.
+```
 
-Bash
-
+**4. Instale as Dependências:**
+O arquivo `requirements.txt` contém todas as bibliotecas necessárias.
+```bash
 pip install -r requirements.txt
-▶️ Como Rodar a Aplicação
+```
+
+## ▶️ Como Rodar a Aplicação
+
 Com o ambiente configurado, você pode iniciar a aplicação Streamlit.
 
-Certifique-se de que o modelo treinado (modelo_decision_match_ai.joblib) está no diretório models/.
+1.  Certifique-se de que o modelo treinado (`modelo_decision_match_ai.joblib`) está no diretório `models/`.
+2.  Execute o comando abaixo na raiz do projeto:
+    ```bash
+    streamlit run app/app.py
+    ```
+3.  A aplicação será aberta automaticamente no seu navegador.
 
-Execute o comando abaixo na raiz do projeto:
+## 🧠 Como Treinar o Modelo Novamente
 
-Bash
-
-streamlit run app/app.py
-A aplicação será aberta automaticamente no seu navegador.
-
-🧠 Como Treinar o Modelo Novamente
 Para re-executar o pipeline de treinamento e gerar um novo modelo, siga estes passos:
 
-1. Prepare os Dados:
+**1. Prepare os Dados:**
+* Coloque os arquivos de dados brutos (`vagas.json`, `prospects.json`, e `Applicants_amostra.json` ou o `Applicants.json` completo) no diretório `data/raw/`.
 
-Coloque os arquivos de dados brutos (vagas.json, prospects.json, e Applicants_amostra.json ou o Applicants.json completo) no diretório data/raw/.
-
-2. Execute os Notebooks Jupyter:
-
-É recomendado usar o Jupyter Notebook ou JupyterLab para executar os scripts de forma interativa.
-
-Execute os notebooks na seguinte ordem, pois eles são sequenciais:
-
-notebooks/1_Data_Processing.ipynb: Para ler os dados brutos, consolidá-los e salvar dados_consolidados.json.
-
-notebooks/2_Feature_Engineering.ipynb: Para carregar os dados consolidados, criar as features de compatibilidade e salvar dados_com_features.json.
-
-notebooks/3_Model_Training.ipynb: Para carregar os dados com features, treinar os modelos, selecionar o melhor e salvar o artefato final (modelo_decision_match_ai.joblib) no diretório models/.
+**2. Execute os Notebooks Jupyter:**
+* É recomendado usar o Jupyter Notebook ou JupyterLab.
+* Execute os notebooks na seguinte ordem:
+    1.  **`notebooks/1_Data_Processing.ipynb`**: Para ler os dados brutos, consolidá-los e salvar `dados_consolidados.json`.
+    2.  **`notebooks/2_Feature_Engineering.ipynb`**: Para criar as features de compatibilidade e salvar `dados_com_features.json`.
+    3.  **`notebooks/3_Model_Training.ipynb`**: Para treinar, avaliar, e salvar o modelo final como `modelo_decision_match_ai.joblib` no diretório `models/`.
