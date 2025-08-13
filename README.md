@@ -28,7 +28,7 @@ O modelo foi treinado com uma base de dados real da Decision, aprendendo a ident
 │   ├── raw/                    # Onde os dados brutos em JSON devem ser colocados
 │   │   ├── vagas.json
 │   │   ├── prospects.json
-│   │   └── Applicants.json (ou a amostra)
+│   │   └── applicants.json
 │   └── processed/              # Arquivos intermediários gerados pelo pipeline
 │       ├── dados_consolidados.json
 │       └── dados_com_features.json
@@ -92,11 +92,12 @@ Com o ambiente configurado, você pode iniciar a aplicação Streamlit.
 Para re-executar o pipeline de treinamento e gerar um novo modelo, siga estes passos:
 
 **1. Prepare os Dados:**
-* Coloque os arquivos de dados brutos (`vagas.json`, `prospects.json`, e `Applicants_amostra.json` ou o `Applicants.json` completo) no diretório `data/raw/`.
+* Coloque os arquivos de dados brutos (`vagas.json`, `prospects.json` e `Applicants.json`) no diretório `data/raw/`.
 
 **2. Execute os Notebooks Jupyter:**
 * É recomendado usar o Jupyter Notebook ou JupyterLab.
 * Execute os notebooks na seguinte ordem:
     1.  **`notebooks/1_Data_Processing.ipynb`**: Para ler os dados brutos, consolidá-los e salvar `dados_consolidados.json`.
     2.  **`notebooks/2_Feature_Engineering.ipynb`**: Para criar as features de compatibilidade e salvar `dados_com_features.json`.
+
     3.  **`notebooks/3_Model_Training.ipynb`**: Para treinar, avaliar, e salvar o modelo final como `modelo_decision_match_ai.joblib` no diretório `models/`.
